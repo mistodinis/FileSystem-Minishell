@@ -6,7 +6,6 @@
 #include "file.h"
 
 
-
 Directory *create()
 {
 return initDirectory("/" , NULL);
@@ -34,8 +33,7 @@ void delete(Directory *root)
     }
 
     free(root->name);
-    free(root);
-    
+    free(root); 
 }
 
 
@@ -102,18 +100,13 @@ Directory *touch(char *filename , char *content , Directory *currDir){
             break;
         }
 
-        
         contor->next = tmp;
     }
-   
     return currDir;
-
-    
 }
 
 Directory *mkdir(char *name , Directory *currDir){
 
-    
     Folder *tmp = foldInitList(initDirectory(name,currDir));
     
     if(currDir->nodeF == NULL){
@@ -173,7 +166,6 @@ Directory *mkdir(char *name , Directory *currDir){
         }
         counter->next = tmp;
     }
-
     return currDir;
 }
 
@@ -207,7 +199,6 @@ void ls(Directory *currDir){
         }
     }
     printf("\n");
-    
 }
 
 void pwd(Directory *currDir){
@@ -217,19 +208,20 @@ void pwd(Directory *currDir){
     if(temp->parentDir == NULL){
 
         printf("/");
+       
         return;
     }
 
     if(strcmp(temp->parentDir->name , "/") == 0){
 
         printf("/%s" , temp->name);
+       
         return;
     }
         
     pwd(temp->parentDir);
 
     printf("/%s" , temp->name);
-
 }
 
 Directory *changeDirectory(char *name , Directory *currDir){
@@ -255,13 +247,16 @@ Directory *changeDirectory(char *name , Directory *currDir){
     Folder *tmp = currDir->nodeF;
 
     if(tmp == NULL){
+        
         printf("Cannot move to '%s': No such directory!\n", name);
+       
         return currDir;
     }
 
     while(tmp != NULL){
 
         if(strcmp(tmp->dir->name , name) == 0 ){
+          
             currDir = tmp->dir;
 
             return currDir;
@@ -276,10 +271,10 @@ Directory *changeDirectory(char *name , Directory *currDir){
     printf("Cannot move to '%s': No such directory!\n", name);
     
     return currDir;
-
 }
 
 int level = 1;
+
 void tree(Directory *currDir){
 
     if(currDir == NULL)
@@ -323,6 +318,7 @@ void tree(Directory *currDir){
         }else{
 
             while (fis != NULL){
+               
                 for(int i = 1;i <=level;i++)
                     printf("    ");
 
@@ -337,6 +333,7 @@ void tree(Directory *currDir){
             if(fold == NULL){
                 return;
             }else{
+               
                 while(fold != NULL){
                     
                     level++;
@@ -352,10 +349,7 @@ void tree(Directory *currDir){
                 }
             }
         }
-
-    }
-
-    
+    } 
 }
 
 Directory *removeFile(char *name , Directory *currDir){
@@ -383,7 +377,6 @@ Directory *removeDirectory( Directory *currDir){
         return NULL;
     }
         
-    
     while(currDir->nodeF != NULL){
        
         Folder *tmp = currDir->nodeF;
@@ -401,7 +394,6 @@ Directory *removeDirectory( Directory *currDir){
     }
 
     return NULL;
-
 }
 
 Directory *rmdir(char *name , Directory *currDir){
@@ -410,7 +402,9 @@ Directory *rmdir(char *name , Directory *currDir){
         return NULL;
 
     if(currDir->nodeF == NULL){
+        
         printf("Cannot remove '%s': No such directory!\n" , name);
+        
         return currDir;
     }
 
@@ -426,11 +420,11 @@ Directory *rmdir(char *name , Directory *currDir){
            
              return currDir;
          }else{
-             printf("Cannot remove '%s': No such directory!\n" , name);
+             
+            printf("Cannot remove '%s': No such directory!\n" , name);
 
             return currDir;
          }
-
     }else{
 
          if(strcmp ( currDir->nodeF->dir->name , name) == 0){
@@ -444,7 +438,6 @@ Directory *rmdir(char *name , Directory *currDir){
              return currDir;
          }
     }
-
     Folder *tmp = currDir->nodeF;
     
     Folder *prev = currDir->nodeF;
@@ -475,6 +468,5 @@ Directory *rmdir(char *name , Directory *currDir){
      printf("Cannot remove '%s': No such directory!\n" , name);
 
      return currDir;
-
 }
 
