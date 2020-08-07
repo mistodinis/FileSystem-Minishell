@@ -7,75 +7,21 @@
 
 int main(){
 
-	// Directory *dir;
-	
-//	printf("%s  /// \n %d  /// \n %s " , f->name , f->size , f->data);
-	
-	
-	//Directory *root = create();
-
-	// File *f = initFile("Ana canta"  , "__--__---dawa" , root);
-	// printf("size = %d " , f->size);
-
-//	root = touch("Gigela " , "Anacanta" , root);
-
-	// printf("%s" , root->node->f->name);
-	// printf("%s  " ,  root->name);
-
-//	root = touch("Anela" , "Gioconda" , root);
-	//root->node = root->node->next;
-	//	printf("%s" , root->node->f->name);
-
-//	root = touch ("Bella" , "DAs" , root);
-
-	//printf(" #2 %s " , root->node->f->name);
-
-//	root = mkdir("cantaaaaaa" , root);
-
-//	printf("\n %s " , root->nodeF->dir->name);
-
-///	root = mkdir("aantaaaaaa" , root);
-
-
-//	root = mkdir("gAW" , root);
-
-//	root = mkdir("zad" , root);
-
-//	root = mkdir("barbarosa" , root);
-//	printf("\n %s " , root->nodeF->dir->name);
-
-	// printFiles(root->node);
-	// printDirectories(root->nodeF);
-//	ls(root);
-
-//	root = delete(root);
-
-	//printf("%s " , root->name);
-
-//	if(root == NULL) 
-//		printf("\n SUCCES" );
-
-
 Directory *currDir = NULL;
 
 char *s = (char *)malloc(100*sizeof(char));
 
-//s = fgets(s , 100 , stdin);
-//printf("%ld " , strlen(s));
-// if(s == NULL)
-// 	printf("GO");
-// puts(s);
-
 char* param[5];
 
 for(int i = 0;i < 5;i++){
+	
 	param[i] = calloc(30,sizeof(char));
 }
 	
 int j = 0 , ctr = 0;;
 
-
 while (1){
+	
 	ctr = 0;
 
 	s = fgets(s , 100, stdin);
@@ -88,10 +34,11 @@ while (1){
 		if(s[i] == ' ' || s[i] == '\0' || s[i] == '\n'){
 
 			param[ctr][j] = '\0';
+			
 			ctr++;
+			
 			j = 0;
 		
-
 		}else{
 
 			param[ctr][j] = s[i];
@@ -104,7 +51,6 @@ while (1){
 		currDir = create();
 
 		continue;
-
 	}
 
 	if(strcmp(param[0] , "touch") == 0){
