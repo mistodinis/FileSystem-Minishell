@@ -8,7 +8,6 @@
 
 Fisier * fisInitList(File *f)
 {
-
     Fisier *new_file =  malloc(sizeof(Fisier));
 
     new_file->f = f;
@@ -20,7 +19,6 @@ Fisier * fisInitList(File *f)
 
 File * initFile(char *name ,  char *data , Directory *dir)
 {
-
     File *f =  malloc(sizeof(struct File));
     
     f->size = strlen(data);
@@ -30,14 +28,12 @@ File * initFile(char *name ,  char *data , Directory *dir)
     f->data = strdup(data);
     
     f->dir = dir;
-
+    
     return f;
 }
 
-
 Directory * initDirectory(char *name , Directory *parent_dir)
 {
-
     Directory *new_directory = malloc(sizeof(Directory));
 
     new_directory->name = strdup(name);
@@ -60,7 +56,6 @@ Directory * initDirectory(char *name , Directory *parent_dir)
 
 Folder * foldInitList(Directory *dir)
 {
-
     Folder *new_folder = malloc(sizeof(Folder));
 
     new_folder->dir = dir;
@@ -152,8 +147,8 @@ Fisier *deleteFile(char *name , Fisier *source){
     }
     
     printf("Cannot remove '%s': No such file!\n" , name);
+   
     return source;
-
 }
 
 
@@ -199,7 +194,6 @@ Fisier *deleteAllFiles(Fisier *source){
 
 void printFiles(Fisier *files)
 {
-
     if(files == NULL)
         return;
 
@@ -226,7 +220,6 @@ void printFiles(Fisier *files)
 
 void printDirectories(Folder *folders)
 {
-
     if(folders == NULL)
         return;
 
