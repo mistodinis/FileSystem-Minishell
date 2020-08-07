@@ -4,3 +4,7 @@ The  project has to simulate a linux shell script , the commands are related to 
 
 It helps you to understand how to work with lists and structures overall , a lot of base cases  , it makes you to think about all possible cases.
 It was fun to implement it.
+
+
+Request :
+Implement an CLI aplication to manage filesystem. For that , we wish to implement a series of operation like in Linux's CLI , manipulation of filesystem , but simplified. The root directory will have name -> "/".
