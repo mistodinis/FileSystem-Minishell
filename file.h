@@ -13,9 +13,9 @@ typedef struct Directory {
     // The name of the directory
     char *name;
 
-    // TODO: The list of files of the current directory
+    // The list of files of the current directory
     Fisier *node;
-    // TODO: The list of directories of the current directory
+    // The list of directories of the current directory
     Folder *nodeF;
     // The parent directory of the current directory (NULL for the root directory)
     struct Directory *parentDir;
